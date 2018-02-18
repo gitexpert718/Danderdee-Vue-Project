@@ -1,0 +1,46 @@
+{
+  "count": 1,
+  "regions": [
+    {
+      "lat": "101",
+      "lng": "103",
+      "region_name": "Lazio",
+      "cities": [
+        {
+          "lat": "101",
+          "lng": "103",
+          "city_name": "Cahors",
+          "location_count": 1,
+          "locations": [
+            {
+              "location_id": "59db9d965b067b079b146b41",
+              "location_name": "Belvedere Faro di Capo Circeo",
+              "lat": "41.222528",
+              "lng": "13.068248",
+              "device_types": {
+                "count": 2,
+                "names": [
+                  "Test 2",
+                  "Test"
+                ]
+              }
+            },
+            {
+              "location_id": "59db9d965b067b079b146b42",
+              "location_name": "Fabbro Rainone Fiumicino",
+              "lat": "41.762434",
+              "lng": "12.248179",
+              "device_types": {
+                "count": 2,
+                "names": [
+                  "Test 2",
+                  "Test"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

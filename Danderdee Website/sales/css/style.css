@@ -1,0 +1,96 @@
+body{
+  font-family: 'Montserrat', sans-serif;
+}
+#mapid{ 
+  height: 380px;
+    margin-bottom: 20px;
+}
+
+.locations-wrapper .nav-tabs {
+    margin-bottom: 25px;
+    border-bottom: none;
+}
+
+.locations-wrapper .nav-tabs>li>a {
+    border-radius: 4px;
+}
+
+.locations-wrapper .nav-tabs>li.active>a,
+.locations-wrapper .nav-tabs>li.active>a:focus,
+.locations-wrapper .nav-tabs>li.active>a:hover {
+    border-bottom-color: #ddd;
+    background-color: #bdbdbd;
+}
+
+.icon-country {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50%;
+    border: 1px solid #004e00;
+    background-color: green;
+    color: white;
+}
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1224px) {
+/* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen 
+and (min-width : 1824px) {
+/* Styles */
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+/* Styles */
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen 
+and (min-width : 321px) {
+/* Styles */
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen 
+and (max-width : 320px) {
+/* Styles */
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+/* Styles */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+/* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+/* Styles */
+}
+
+
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
+}

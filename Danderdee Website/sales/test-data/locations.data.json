@@ -1,0 +1,45 @@
+{
+  "count": 2,
+  "data": [
+    {
+      "id": "59db9d965b067b079b146b41",
+      "name": "Belvedere Faro di Capo Circeo",
+      "lat": "41.222528",
+      "lng": "13.068248",
+      "devices": [
+          "Device 1",
+          "Device 2"
+        ]
+    },
+    {
+      "id": "59db9d965b067b079b146b42",
+      "name": "Fabbro Rainone Fiumicino",
+      "lat": "41.762434",
+      "lng": "12.248179",
+      "devices": [
+        "Device 3",
+        "Device 4"
+      ]
+    },
+    {
+      "id": "59db9d965b067b079b",
+      "name": "Peperino Pizza & Grill",
+      "lat": "45.437225",
+      "lng": "10.9917624",
+      "devices": [
+        "Device 5",
+        "Device 6",
+        "Device 7"
+      ]
+    },
+    {
+      "id": "59db9d965b067b079b146b4465b067b079b146b44",
+      "name": "Piazzetta Castelvecchio",
+      "lat": "45.439939",
+      "lng": "10.988946",
+      "devices": [
+        "Device 8"
+      ]
+    }
+  ]
+}

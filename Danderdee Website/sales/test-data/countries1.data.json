@@ -1,0 +1,83 @@
+{
+  "total": 1,
+  "data": [
+    {
+      "lat": "41.8719",
+      "lng": "12.5674",
+      "name": "Italy",
+      "location_count": 23,
+      "regions": [
+        {
+          "lat": "45.84572",
+          "lng": "12.33703",
+          "name": "Veneto",
+          "location_count": 12
+        },
+        {
+          "lat": "43.77105",
+          "lng": "11.24862",
+          "name": "Tuscany",
+          "location_count": 8
+        },
+        {
+          "lat": "45.47907",
+          "lng": "9.84524",
+          "name": "Lombardy",
+          "location_count": 3
+        }
+      ]
+    },
+    {
+      "lat": "40.46367",
+      "lng": "-3.74922",
+      "name": "Spain",
+            "location_count": 23,
+      "regions": [
+        {
+          "lat": "39.27956",
+          "lng": "-3.09770",
+          "name": "Castilla-La Mancha",
+          "location_count": 7
+        },
+        {
+          "lat": "37.54427",
+          "lng": "-4.72775",
+          "name": "Andalucía",
+          "location_count": 5
+        },
+        {
+          "lat": "43.18284",
+          "lng": "-3.98784",
+          "name": "Cantabria",
+          "location_count": 3
+        }
+      ]
+    },
+    {
+      "lat": "53.499998",
+      "lng": "-0.3166662",
+      "name": "United Kingdom",
+      "location_count": 7,
+      "regions": [
+        {
+          "lat": "54.499998",
+          "lng": "-0.4166662",
+          "name": "Veneto",
+          "location_count": 12
+        },
+        {
+          "lat": "55.199998",
+          "lng": "-0.6166662",
+          "name": "Tuscany",
+          "location_count": 8
+        },
+        {
+          "lat": "52.899998",
+          "lng": "-0.5166662",
+          "name": "Lombardy",
+          "location_count": 3
+        }
+      ]
+    }
+  ]
+}

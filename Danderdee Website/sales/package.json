@@ -1,0 +1,43 @@
+{
+  "name": "p-11",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/k-martin/p-11.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/k-martin/p-11/issues"
+  },
+  "homepage": "https://gitlab.com/k-martin/p-11#README",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.17",
+    "css-loader": "^0.28.9",
+    "file-loader": "^1.1.6",
+    "html-loader": "^0.5.4",
+    "style-loader": "^0.19.1",
+    "webpack": "^3.10.0"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1",
+    "js-cookie": "^2.2.0",
+    "leaflet": "^1.2.0",
+    "leaflet.markercluster": "^1.2.0",
+    "lodash.template": "^4.4.0",
+    "select2": "^4.0.6-rc.1",
+    "static-server": "^3.0.0"
+  }
+}

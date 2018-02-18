@@ -1,0 +1,24 @@
+{
+  "data": [
+    {
+      "lat": "41.8719",
+      "lng": "12.5674",
+      "name": "Italy",
+      "location_count": 4,
+      "regions": [
+        {
+          "lat": "45.84572",
+          "lng": "12.33703",
+          "name": "Veneto",
+          "location_count": 2
+        },
+        {
+          "lat": "43.77105",
+          "lng": "11.24862",
+          "name": "Tuscany",
+          "location_count": 2
+        }
+      ]
+    }
+  ]
+}
