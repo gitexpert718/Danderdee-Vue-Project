@@ -1,5 +1,6 @@
-body{
-  font-family: 'Montserrat', sans-serif;
+body {
+    padding-top: 90px;
+    font-family: 'Montserrat', sans-serif;
 }
 #mapid{ 
   height: 380px;
@@ -13,6 +14,7 @@ body{
 
 .locations-wrapper .nav-tabs>li>a {
     border-radius: 4px;
+    padding: 10px 15px;
 }
 
 .locations-wrapper .nav-tabs>li.active>a,
