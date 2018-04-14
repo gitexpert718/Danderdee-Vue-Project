@@ -1,0 +1,29 @@
+.main-header
+{
+	background: #ECF0F5;
+	width: 100%;
+}
+.main-header .logo
+{
+	margin-top: 8px;
+}
+h1
+{
+	font-size: 25px;
+}
+.container
+{
+	padding-top: 100px;
+}
+.main-footer
+{
+	margin-left: 0;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0
+}
+.main-header .navbar-custom-menu, .main-header .navbar-right
+{
+	margin-left: 0;
+}

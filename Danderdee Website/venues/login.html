@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Admin Login
+        </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link rel="shortcut icon" href="img/fav.png" />
+        <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="js/angular.min.js"></script>
+        <script src="bootstrap/js/bootstrap.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+       
+    </head>
+    <body class="grey-bg" style="margin-top: 10px;">
+        <div class="container" ng-app="myApp" ng-controller="myCtrl">
+            <div class="row">
+                <div class='col-sm-3 col-xs-1'>
+
+                </div>
+                <div class="col-sm-6 col-xs-10 login-form-margin">
+
+                    <div class="panel panel-default ">
+
+                        <div class="panel-heading"> <strong class="">Login</strong>
+
+                        </div>
+                        <div class="panel-body">
+                            <div class='error col-xs-12 '>
+                                <label class="col-xs-12 control-label">
+
+                                </label>
+                            </div>
+                            <form class='form-horizontal' role='form' name="myForm" ng-submit="search()">
+                               <p class="error">{{error}}</p>
+                                <div class="form-group">
+                                    <label class="col-sm-3 col-xs-12 control-label">Email Address</label>
+                                    <div class="col-sm-9 col-xs-12">
+                                        <input type="text" name="email" class="form-control " placeholder="Email" ng-model="user.email"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 col-xs-12 control-label">Password</label>
+                                    <div class="col-sm-9 col-xs-12">
+                                        <input type="password" name="data[password]" class="form-control " placeholder="Password" ng-model="user.password" />
+                                    </div>
+                                </div>
+                               <div class="form-group">
+                                   <a class="col-sm-offset-3 col-xs-12 col-sm-9" href="password/forgot.html">
+                                       Forgot Password? Click Here
+                                   </a>
+                               </div>
+       
+                                <div class="form-group last">
+                                    <div class="col-sm-offset-3 col-sm-9 col-xs-12">
+                                        <button type="submit"  class = "btn btn-success btn-sm submit-button" ng-disabled="isDisabled"/>{{submit}}</button>
+                                        <button type="reset" class="btn btn-default btn-sm">Reset</button>
+
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                        <div class="panel-footer">
+        <!--                    Not Registered? <a href="#" class="">Register here</a>-->
+                        </div>
+                    </div>
+                </div>
+                <div class='col-xs-1 col-sm-3'>
+
+                </div>
+            </div>
+        </div>
+        <script>
+            var app = angular.module('myApp', []);
+                app.controller('myCtrl', function($scope, $http, $httpParamSerializerJQLike) {
+                    $scope.isDisabled = false;
+                    $scope.submit = 'Sign In';
+                    $scope.search = function() {
+                        $scope.isDisabled = true;
+                        $scope.disabling = 'disabled';
+                        $scope.submit = 'Validating your login';
+                        $scope.error = 'Validating your login........';
+                        $http({
+                            method : "POST",
+                            url : "https://netapi.danderdee.com/api/auth/signin",
+                       //     params : $scope.user
+			    withCredentials: true,
+                            data : $httpParamSerializerJQLike($scope.user),
+                            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                        }).then(function mySucces(response) {
+                            localStorage.setItem("__id", response.data['_id']);
+                            $scope.error = 'You are logged in successfully. Redirecting you into application';
+                            window.location.href = 'index.php';
+                        }, function myError(response) {
+                            console.log(response);
+                            $scope.error = 'Your username/password combination seems to be wrong';
+                            $scope.submit = 'Sign In';
+                            $scope.isDisabled = false;
+                        });
+                    }
+                });
+        </script>
+    </body>
+</html>
