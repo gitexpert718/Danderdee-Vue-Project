@@ -53,8 +53,6 @@ jQuery(document).ready(function(){
 					jQuery('.logo, .leftpanel').css({marginLeft: '-260px'});
 		  }
    });
-    
-  
 	
 	// dropdown menu for profile image
 	jQuery('.userloggedinfo img').click(function(){
