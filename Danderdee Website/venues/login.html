@@ -13,7 +13,7 @@
         <script type="text/javascript" src="js/angular.min.js"></script>
         <script src="bootstrap/js/bootstrap.js"></script>
         <script type="text/javascript" src="js/script.js"></script>
-       
+
     </head>
     <body class="grey-bg" style="margin-top: 10px;">
         <div class="container" ng-app="myApp" ng-controller="myCtrl">
@@ -52,6 +52,9 @@
                                    <a class="col-sm-offset-3 col-xs-12 col-sm-9" href="password/forgot.html">
                                        Forgot Password? Click Here
                                    </a>
+                                   <span ng-click="fbLogin()" class="col-sm-offset-3 col-xs-12 col-sm-9" style="cursor: pointer">
+                                       Facebook login <img src="https://www.hattonarms.co.uk/wp-content/uploads/2017/08/imageedit_20_2716316726-facebook-icon.png" width="15px">
+                                   </span>
                                </div>
        
                                 <div class="form-group last">
@@ -76,6 +79,24 @@
         </div>
         <script>
             var app = angular.module('myApp', []);
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId            : '390065038054142',
+                    autoLogAppEvents : true,
+                    xfbml            : true,
+                    version          : 'v3.2'
+                });
+            };
+
+            (function(d, s, id){
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+                js = d.createElement(s); js.id = id;
+                js.src = "https://connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+
+
                 app.controller('myCtrl', function($scope, $http, $httpParamSerializerJQLike) {
                     $scope.isDisabled = false;
                     $scope.submit = 'Sign In';
@@ -87,8 +108,7 @@
                         $http({
                             method : "POST",
                             url : "https://netapi.danderdee.com/api/auth/signin",
-                       //     params : $scope.user
-			    withCredentials: true,
+			                withCredentials: true,
                             data : $httpParamSerializerJQLike($scope.user),
                             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                         }).then(function mySucces(response) {
@@ -101,6 +121,35 @@
                             $scope.submit = 'Sign In';
                             $scope.isDisabled = false;
                         });
+                    }
+
+                    $scope.fbLogin = function () {
+                        FB.login(function (response) {
+                            console.log(response);
+                            if(response.authResponse){
+                                var accessToken = FB.getAuthResponse().accessToken;
+                                if(accessToken){
+                                    $http({
+                                        method : "POST",
+                                        url : "https://netapi.danderdee.com/api/auth/facebook",
+                                        withCredentials: true,
+                                        data : $httpParamSerializerJQLike({access_token: accessToken}),
+                                        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                                    }).then(function mySucces(response) {
+                                        localStorage.setItem("__id", response.data['_id']);
+                                        $scope.error = 'You are logged in successfully. Redirecting you into application';
+                                        window.location.href = 'index.php';
+                                    }, function myError(response) {
+                                        console.log(response);
+                                        $scope.error = 'Your username/password combination seems to be wrong';
+                                        $scope.submit = 'Sign In';
+                                        $scope.isDisabled = false;
+                                    });
+                                }
+                            }else{
+                                alert("Ups :( User login failed")
+                            }
+                        },{scope: 'email, public_profile, user_gender', return_scopes: true});
                     }
                 });
         </script>
