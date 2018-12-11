@@ -184,3 +184,15 @@
   <!-- /.sidebar -->
 </aside>
 <!-- =============================================== -->
+
+
+
+<script type="text/javascript">
+
+    var myid = localStorage.getItem('__id');
+    if ( myid == null )
+    {
+        location.href = "<?php echo SERVER ?>" + "/login.html";
+    }
+  
+</script>
