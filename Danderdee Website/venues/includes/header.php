@@ -1,7 +1,7 @@
 <?php
 //$server = $_SERVER['DOCUMENT_ROOT'] . '/cp';
 //DEFINE('SERVER', '/venues/');
-// DEFINE('SERVER', 'https://danderdee.com/cp');
+ DEFINE('SERVER', 'https://danderdee.com/venues');
 ?>
 <!DOCTYPE html>
 <html>
@@ -44,10 +44,10 @@
             <script src="../https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
         <!-- jQuery 2.1.4 -->
-        <script src="<?php echo SERVER ?>/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
 
-        <!-- <script type="text/javascript" src="../js/angular.min.js"></script> -->
-       <!-- <script>
+        <script type="text/javascript" src="js/angular.min.js"></script> 
+        <script>
             var app = angular.module('signOutApp', []);
             app.controller('signOutCtrl', function ($scope, $http) {
                 $scope.signOut = function () {
@@ -55,13 +55,13 @@
                         method: "GET",
                         url: "https://netapi.danderdee.com/api/auth/signout"
                     }).then(function mySucces(response) {
-                        window.location.href = '/cp/login.html';
+                        window.location.href = 'login.html';
                     }, function myError(response) {
-                        alert("Some issues with your sign out. Please sign out again");
+                        alert("There was a problem. Please try to sign out again");
                     });
                 }
             });
-        </script> -->
+        </script>
 
     </head>
 
