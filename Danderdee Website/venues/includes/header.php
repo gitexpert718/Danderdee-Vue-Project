@@ -44,9 +44,9 @@
             <script src="../https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
         <!-- jQuery 2.1.4 -->
-        <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="<?php echo SERVER ?>/js/jquery-1.11.2.min.js"></script>
 
-        <script type="text/javascript" src="js/angular.min.js"></script> 
+        <script type="text/javascript" src="<?php echo SERVER ?>/js/angular.min.js"></script> 
         <script>
             var app = angular.module('signOutApp', []);
             app.controller('signOutCtrl', function ($scope, $http) {
