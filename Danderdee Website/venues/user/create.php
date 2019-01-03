@@ -86,6 +86,10 @@ include('../includes/sidebar.php');
                             <input type="text" id="postcode" class="form-control" placeholder="Post Code" ng-model="user.postcode">
                             <label for="postcode">Post Code</label>
                         </div>
+                        <div class="form-group">
+                            <input custom-on-change="uploadFile" type="file" id="photo" class="form-control" placeholder="Profile Picture" ng-model="image">
+                            <label for="postcode">Profile Picture</label>
+                        </div>
 
 
                       </div><!-- /.box-body -->
@@ -114,9 +118,32 @@ include('../includes/sidebar.php');
 //				'Content-Type': 'application/json',
 //				'Accept': 'application/json'
 //			};
+                app.directive('customOnChange', function() {
+                    return {
+                        restrict: 'A',
+                        link: function (scope, element, attrs) {
+                            var onChangeHandler = scope.$eval(attrs.customOnChange);
+                            element.bind('change', onChangeHandler);
+                        }
+                    };
+                });
+                
                 app.controller('myCtrl', function($scope, $http) {
                     $scope.isDisabled = false;
                     $scope.submit = 'Create User';
+                    $scope.profilePictureFile = '';
+
+                    $scope.uploadFile = function(event) {
+                        const file = event.target.files[0];
+                        const reader = new FileReader();
+                        reader.addEventListener('load', async () => {
+                            const imageBase = reader.result;
+                            $scope.profilePictureFile = imageBase;
+                        }, false);
+                        if (file) {
+                            reader.readAsDataURL(file);
+                        }
+                    };
 
                     $http({
                         withCredentials: true,
@@ -145,6 +172,7 @@ include('../includes/sidebar.php');
                         $scope.disabling = 'disabled';
                         $scope.submit = 'Submitting data';
                         $scope.error = 'Submitting data........';
+                        $scope.user = {...$scope.user , 'profilePicture':$scope.profilePictureFile}    
                         $http({
                             method : "POST",
                          //   headers: headers,

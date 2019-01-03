@@ -1,7 +1,7 @@
 <?php
 //$server = $_SERVER['DOCUMENT_ROOT'] . '/cp';
 //DEFINE('SERVER', '/venues/');
- DEFINE('SERVER', 'https://danderdee.com/venues');
+ DEFINE('SERVER', 'https://netapi.danderdee.com/venues');
 ?>
 <!DOCTYPE html>
 <html>

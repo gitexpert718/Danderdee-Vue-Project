@@ -3,12 +3,12 @@
   <!-- sidebar: style can be found in sidebar.less -->
   <section class="sidebar">
     <!-- Sidebar user panel -->
-    <div class="user-panel">
+    <div class="user-panel"  id="sideBar" ng-app="sideBar" ng-controller="sideBarCtrl">
       <div class="pull-left image">
-        <img src="<?php echo SERVER ?>/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+        <img data-ng-src="data:image/png;base64,{{user.profilePicture}}" data-err-src="<?php echo SERVER ?>/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
       </div>
       <div class="pull-left info">
-        <p>Alexander Pierce</p>
+      <p ng-bind-html="user.name">Alexander Pierce</p>
         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
       </div>
     </div>
@@ -196,3 +196,24 @@
     }
   
 </script>
+
+        <script>
+            var app = angular.module('sideBar', []);
+            app.controller('sideBarCtrl', function ($scope, $http, $sce) {
+                $scope.user = {};
+                $http({
+                    withCredentials: true,
+                    method: "GET",
+                    url: "https://netapi.danderdee.com/api/users/me"
+
+                }).then(function mySucces(response) {
+console.log(response);
+
+                if (response.status == 200){ 
+                    const base64String = btoa(String.fromCharCode(...new Uint8Array(response.data.profilePicture.data)));
+                    $scope.user.name = $sce.trustAsHtml((response.data.firstName +' '+ response.data.lastName) || '');
+                    $scope.user.profilePicture = $sce.trustAsHtml(base64String); 
+                }
+                });
+            });
+        </script>

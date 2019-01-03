@@ -64,7 +64,7 @@
         </div>
     </section>
 </div>
-<!-- <script>
+<script>
     var app = angular.module('myApp', []);
     app.controller('myCtrl', function ($scope, $http, $sce) {
         $scope.user = {};
@@ -82,13 +82,13 @@
             {
                 console.log(response);
 
-                $scope.user.username = $sce.trustAsHtml(response.data.username);
-                $scope.user.email = $sce.trustAsHtml(response.data.email);
-                $scope.user.phone = $sce.trustAsHtml(response.data.phoneNumber);
-                $scope.user.name = $sce.trustAsHtml(response.data.firstName + response.data.lastName);
-                $scope.user.address = $sce.trustAsHtml(response.data.address);
-                $scope.user.age = $sce.trustAsHtml(' ' + response.data.age + ' ');
-                $scope.user.gender = $sce.trustAsHtml(response.data.gender);
+                $scope.user.username = $sce.trustAsHtml(response.data.username || '');
+                $scope.user.email = $sce.trustAsHtml(response.data.email || '');
+                $scope.user.phone = $sce.trustAsHtml(response.data.phoneNumber || '');
+                $scope.user.name = $sce.trustAsHtml((response.data.firstName + response.data.lastName) || '');
+                $scope.user.address = $sce.trustAsHtml(response.data.address || '');
+                $scope.user.age = $sce.trustAsHtml(response.data.age || '');
+                $scope.user.gender = $sce.trustAsHtml(response.data.gender || '');
 
                 $(response.data).each(function (i, val) {
 
@@ -134,7 +134,7 @@
         });
     });
     angular.bootstrap(document.getElementById("myApp"), ['myApp']);
-</script> -->
+</script>
 
 <?php
 
