@@ -963,6 +963,9 @@ textarea.form-control1 {
    font-size: 1.5em;
    color: black;
 }
+.profilePictureLabel{
+  top: -25px !important;
+}
 /*
 #sidebar-logo {
    overflow: hidden;

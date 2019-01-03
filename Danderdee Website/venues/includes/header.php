@@ -1,7 +1,7 @@
 <?php
 //$server = $_SERVER['DOCUMENT_ROOT'] . '/cp';
 //DEFINE('SERVER', '/venues/');
- DEFINE('SERVER', 'https://netapi.danderdee.com/venues');
+ DEFINE('SERVER', 'https://danderdee.com/venues');
 ?>
 <!DOCTYPE html>
 <html>
@@ -46,7 +46,7 @@
         <!-- jQuery 2.1.4 -->
         <script type="text/javascript" src="<?php echo SERVER ?>/js/jquery-1.11.2.min.js"></script>
 
-        <script type="text/javascript" src="<?php echo SERVER ?>/js/angular.min.js"></script> 
+        <script type="text/javascript" src="<?php echo SERVER ?>/js/angular.min.js"></script>
         <script>
             var app = angular.module('signOutApp', []);
             app.controller('signOutCtrl', function ($scope, $http) {

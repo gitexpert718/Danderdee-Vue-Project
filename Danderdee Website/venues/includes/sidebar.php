@@ -5,7 +5,7 @@
     <!-- Sidebar user panel -->
     <div class="user-panel"  id="sideBar" ng-app="sideBar" ng-controller="sideBarCtrl">
       <div class="pull-left image">
-        <img data-ng-src="data:image/png;base64,{{user.profilePicture}}" data-err-src="<?php echo SERVER ?>/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+        <img data-ng-src="{{user.profilePicture}}" data-err-src="<?php echo SERVER ?>/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
       </div>
       <div class="pull-left info">
       <p ng-bind-html="user.name">Alexander Pierce</p>
@@ -209,10 +209,15 @@
                 }).then(function mySucces(response) {
 console.log(response);
 
-                if (response.status == 200){ 
-                    const base64String = btoa(String.fromCharCode(...new Uint8Array(response.data.profilePicture.data)));
+                if (response.status == 200){
+                    if(response.data.profilePicture) {
+                        const base64String = btoa(String.fromCharCode(...new Uint8Array(response.data.profilePicture.data)));
+                        $scope.user.profilePicture = $sce.trustAsHtml(`data:image/png;base64,${base64String}`); 
+                    }
+                    else {
+                        $scope.user.profilePicture = $sce.trustAsHtml(`<?php echo SERVER ?>/dist/img/anonymous-person.jpg`);
+                    }
                     $scope.user.name = $sce.trustAsHtml((response.data.firstName +' '+ response.data.lastName) || '');
-                    $scope.user.profilePicture = $sce.trustAsHtml(base64String); 
                 }
                 });
             });

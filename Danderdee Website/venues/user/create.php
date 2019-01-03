@@ -88,7 +88,7 @@ include('../includes/sidebar.php');
                         </div>
                         <div class="form-group">
                             <input custom-on-change="uploadFile" type="file" id="photo" class="form-control" placeholder="Profile Picture" ng-model="image">
-                            <label for="postcode">Profile Picture</label>
+                            <label class="profilePictureLabel" for="photo">Profile Picture</label>
                         </div>
 
 

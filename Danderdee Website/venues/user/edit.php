@@ -71,6 +71,10 @@ include('../includes/sidebar.php');
                             <input type="text" id="postcode" class="form-control" placeholder="Post Code" ng-model="user.postcode">
                             <label for="postcode">Post Code</label>
                         </div>
+                        <div class="form-group">
+                            <input custom-on-change="uploadFile" type="file" id="photo" class="form-control" placeholder="Profile Picture" ng-model="image">
+                            <label class="profilePictureLabel" for="photo">Profile Picture</label>
+                        </div>
 
 
                       </div><!-- /.box-body -->
@@ -91,12 +95,35 @@ include('../includes/sidebar.php');
 </div>
 <script>
     var app = angular.module('myApp', []);
+    app.directive('customOnChange', function() {
+                    return {
+                        restrict: 'A',
+                        link: function (scope, element, attrs) {
+                            var onChangeHandler = scope.$eval(attrs.customOnChange);
+                            element.bind('change', onChangeHandler);
+                        }
+                    };
+                });
+
        app.controller('myCtrl', function($scope, $http) {
            $scope.user = {};
             $scope.isDisabled = true;
             $scope.submit = 'Update User';
             $scope.error = ' ';
+            $scope.profilePictureFile = '';
+            $scope.userId = window.location.href.split('?')[1].split('=')[1];
 
+                    $scope.uploadFile = function(event) {                        
+                        const file = event.target.files[0];
+                        const reader = new FileReader();
+                        reader.addEventListener('load', async () => {
+                            const imageBase = reader.result;
+                            $scope.profilePictureFile = imageBase;
+                        }, false);
+                        if (file) {
+                            reader.readAsDataURL(file);
+                        }
+                    };
 
               $http({
                         withCredentials: true,
@@ -104,7 +131,6 @@ include('../includes/sidebar.php');
                         url: "https://netapi.danderdee.com/api/users/me"
 
                     }).then(function myFunction(response){
-                          console.log(response);
                           $(response.data).each(function(i,val){
                                 if(response.status == 200){
 
@@ -118,15 +144,11 @@ include('../includes/sidebar.php');
                       console.log(error);
                     });
 
-
-
-
                $http({
                   method : "GET",
-                  url : "https://netapi.danderdee.com/api/users/<?php echo $id ?>",
+                  url : `https://netapi.danderdee.com/api/users/me`,
                   withCredentials: true,
-               }).then(function mySucces(response) {
-                   console.log(response.data);
+               }).then(function mySucces(response) {                   
                    if(response.status == 200)
                    {
                        $scope.isDisabled = false;
@@ -149,14 +171,17 @@ include('../includes/sidebar.php');
                         $scope.disabling = 'disabled';
                         $scope.submit = 'Updating data';
                         $scope.error = 'Updating data........';
+                        if($scope.profilePictureFile !== ''){
+                            $scope.user = {...$scope.user , 'profilePicture':$scope.profilePictureFile}    
+                        }
                         $http({
                             method : "PUT",
-                            url : "https://netapi.danderdee.com/api/users/<?php echo $id ?>",
+                            url : `https://netapi.danderdee.com/api/users/${$scope.userId}`,
                             data : $scope.user
                         }).then(function mySucces(response) {
                             $scope.error = 'Data Updated Successfully';
                             $scope.submit = 'Update User';
-                        }, function myError(response) {
+                        }, function myError(response) {                            
                             if(response.status == 403)
                             {
                                 alert("Please login to continue");

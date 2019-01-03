@@ -6,7 +6,7 @@
 //     $class = 'role';
 // }
 
- include('includes/header.php');  
+ include('includes/header.php');
 
  include('includes/sidebar.php');
 ?>
@@ -142,6 +142,6 @@
 //   $path .= "/projects/netapi-cp/netapi-cp-latest/includes/footer.php";
 //   include_once($path);
 
- include('includes/footer.php'); 
- 
+ include('includes/footer.php');
+
  ?>
