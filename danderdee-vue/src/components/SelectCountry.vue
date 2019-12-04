@@ -1,5 +1,5 @@
 <template>
-  <select class="form-control" name="country">
+  <select class="form-control" name="country" v-model="selectedItem" @change="onChange">
     <option selected disabled>Country</option>
     <option v-for="option in options" :value="option.code" :key="option.code">{{ option.name }}</option>
   </select>
@@ -9,6 +9,7 @@
 export default {
   data() {
     return {
+      selectedItem: "",
       options: [
         { code: "AF", name: "Afghanistan" },
         { code: "AX", name: "Åland Islands" },
@@ -261,6 +262,11 @@ export default {
         { code: "ZW", name: "Zimbabwe" }
       ]
     };
+  },
+  methods: {
+    onChange() {
+      this.$emit("selectCountry", this.selectedItem);
+    }
   }
 };
 </script>

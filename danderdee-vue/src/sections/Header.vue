@@ -51,15 +51,14 @@
                   />
                 </g>
               </svg>
-
-              <h1>
-                <div
-                  class="typewrite"
-                  data-period="2000"
-                  data-type="['Welcome to Danderdee.', 'The future of public Wi-Fi.']"
-                  ref="typewrite"
-                ></div>
-              </h1>
+              <div class="typewrite">
+                <vue-typer
+                  :text="['Welcome to Danderdee.', 'The future of public Wi-Fi.']"
+                  :erase-delay="100"
+                  erase-style="backspace"
+                  caret-animation="blink"
+                ></vue-typer>
+              </div>
             </div>
           </div>
         </div>
@@ -70,68 +69,7 @@
 
 <script>
 export default {
-  name: "Header",
-  mounted() {
-    /* var TxtType = function(el, toRotate, period) {
-      this.toRotate = toRotate;
-      this.el = el;
-      this.loopNum = 0;
-      this.period = parseInt(period, 10) || 2000;
-      this.txt = "";
-      this.tick();
-      this.isDeleting = false;
-    };
-
-    TxtType.prototype.tick = function() {
-      var i = this.loopNum % this.toRotate.length;
-      var fullTxt = this.toRotate[i];
-
-      if (this.isDeleting) {
-        this.txt = fullTxt.substring(0, this.txt.length - 1);
-      } else {
-        this.txt = fullTxt.substring(0, this.txt.length + 1);
-      }
-
-      this.el.innerHTML = '<span class="wrap">' + this.txt + "</span>";
-
-      var that = this;
-      var delta = 200 - Math.random() * 100;
-
-      if (this.isDeleting) {
-        delta /= 2;
-      }
-
-      if (!this.isDeleting && this.txt === fullTxt) {
-        delta = this.period;
-        this.isDeleting = true;
-      } else if (this.isDeleting && this.txt === "") {
-        this.isDeleting = false;
-        this.loopNum++;
-        delta = 500;
-      }
-
-      setTimeout(function() {
-        that.tick();
-      }, delta);
-    };
-
-    var elements = this.$refs.typewrite;
-
-    for (var i = 0; i < elements.length; i++) {
-      var toRotate = elements[i].getAttribute("data-type");
-      var period = elements[i].getAttribute("data-period");
-      if (toRotate) {
-        new TxtType(elements[i], JSON.parse(toRotate), period);
-      }
-    }
-
-    // INJECT CSS
-    var css = document.createElement("style");
-    css.type = "text/css";
-    css.innerHTML =
-      ".typewrite > .wrap { border-right: 0.08em solid #fff; max-width:100%}";
-    document.body.appendChild(css); */
-  }
+  name: "Header"
 };
 </script>
 
@@ -159,7 +97,19 @@ export default {
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
 }
 .typewrite {
-  margin-top: 30px;
+  margin-top: 50px;
+  text-align: center;
+  min-height: 100px;
+}
+.vue-typer .custom.char.typed {
+  color: white;
+  font-size: 52px;
+  font-weight: 700;
+  font-family: "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.vue-typer .custom.caret {
+  width: 5px;
+  background-color: white;
 }
 @media (max-width: 767px) {
   .intro-message {

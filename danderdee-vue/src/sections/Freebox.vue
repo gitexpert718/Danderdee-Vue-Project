@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="container-fluid text-center">
-      <h2>
+      <h2 class="mt-4">
         <a href="#contact">Want a free WiFi Box?</a>
       </h2>
 

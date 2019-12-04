@@ -130,7 +130,7 @@
           <a class="nav-link" href="#">Sales</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
+          <a class="nav-link" href="#contact">Contact</a>
         </li>
         <li class="nav-item dropdown">
           <button
@@ -167,17 +167,17 @@
             aria-haspopup="true"
             aria-expanded="false"
           >Login</button>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <div
+            class="dropdown-menu"
+            aria-labelledby="navbarDropdown"
+            style="background: rgba(255, 255, 255, 0.8);"
+          >
             <div class="dropdown-item" id="login-dp">
               <div>
                 <b>Login via</b>
                 <div class="social-buttons">
-                  <a class="btn btn-fb" href="#">
-                    <i class="fa fa-facebook"></i> Facebook
-                  </a>
-                  <a class="btn btn-tw" href="#">
-                    <i class="fa fa-twitter"></i> Twitter
-                  </a>
+                  <a class="btn btn-fb" href="#">Facebook</a>
+                  <a class="btn btn-tw" href="#">Twitter</a>
                 </div>
                 <b>or</b>
                 <form
@@ -270,6 +270,7 @@ export default {
 .navbar-btn:focus {
   background: #17a2b8;
   border: 1px solid #17a2b8;
+  color: white;
 }
 .navbar-logo {
   margin-left: 15px;
@@ -295,7 +296,6 @@ export default {
   min-width: 250px;
   padding: 14px 14px 0;
   overflow: hidden;
-  background-color: rgba(255, 255, 255, 0.8);
 }
 
 #login-dp .help-block {

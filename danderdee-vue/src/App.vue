@@ -3,27 +3,7 @@
     <!-- navbar -->
     <Navbar />
     <!-- end of navbar -->
-
-    <!-- header section -->
-    <Header />
-    <!-- end of header section -->
-
-    <!-- free wifi section -->
-    <Freebox />
-    <!-- end of free wifi section -->
-
-    <!-- slider section -->
-    <Slider />
-    <!-- end of slider section -->
-
-    <!-- One slider section -->
-    <OneSlide />
-    <!-- end of one slider section -->
-
-    <!-- contact section -->
-    <ContactForm />
-    <!-- end of contact section -->
-
+    <router-view></router-view>
     <!-- footer section -->
     <Footer />
     <!-- end of footer section -->
@@ -32,22 +12,12 @@
 
 <script>
 import Navbar from "./components/Navbar";
-import Header from "./sections/Header";
-import Freebox from "./sections/Freebox";
-import Slider from "./components/Slider";
-import OneSlide from "./components/OneSlide";
-import ContactForm from "./sections/ContactForm";
 import Footer from "./sections/Footer";
 
 export default {
   name: "app",
   components: {
     Navbar,
-    Header,
-    Freebox,
-    Slider,
-    OneSlide,
-    ContactForm,
     Footer
   }
 };
