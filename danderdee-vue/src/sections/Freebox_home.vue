@@ -10,23 +10,23 @@
           <div class="col-xs-12 col-sm-6 col-md-3 smallblock">
             <div class="contentb p-green">
               <span style="font-size:2em" class="glyphicon-leaf">
-                <font-awesome-icon icon="home" />
-                <br />Home
+                <font-awesome-icon icon="leaf" />
+                <br />About
               </span>
-              <div class="text hfix">Go back to the HomePage.</div>
+              <div class="text hfix">Learn more about Danderdee.</div>
               <br />
-              <a class="btn btn-success btn-outline btn-lg" href="/">Home</a>
+              <a class="btn btn-success btn-outline btn-lg" href="#about">About</a>
             </div>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-3 smallblock">
             <div class="content p-yel">
               <span style="font-size:2em" class="glyphicon-globe">
                 <font-awesome-icon icon="globe-americas" />
-                <br />Venues
+                <br />Portfolio
               </span>
               <div class="text hfix">Value via customer metrics and increased sales.</div>
               <br />
-              <a class="btn btn-warning btn-outline btn-lg" href="#contact">Connect</a>
+              <a class="btn btn-warning btn-outline btn-lg" href="portfolio">Portfolio</a>
             </div>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-3 smallblock">

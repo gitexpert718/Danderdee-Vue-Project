@@ -5,6 +5,7 @@ import PrivacyPolicy from "../views/PrivacyPolicy";
 import Home from "../views/Home";
 import NotFound from "../views/NotFound";
 import Terms from "../views/Terms";
+import Portfolio from "../views/Portfolio";
 
 Vue.use(VueRouter);
 
@@ -25,6 +26,11 @@ export default new VueRouter({
       path: "/terms",
       name: "Terms",
       component: Terms
+    },
+    {
+      path: "/portfolio",
+      name: "Portfolio",
+      component: Portfolio
     },
     {
       path: "*",
